@@ -27,3 +27,4 @@ There are a few alternatives (in branches) available:
 * multi-module-unit-tests-try2: Multi module with only unit tests with the Surefire plugin in the pom.xml of each module
 
 In all cases, the result is available 
+# mvn_complex
