@@ -1,8 +1,6 @@
 pipeline {
     agent {label 'builder'}
-    tools {
-          maven "Maven3"
-        }
+    tools {maven "Maven3"}
 stages {
             stage ('Get code from GIT') {
                 steps {
