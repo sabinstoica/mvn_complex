@@ -1,14 +1,20 @@
-node {
-   stage('Preparation') {
-      checkout scm
+pipeline {
+    agent {label 'builder'}
+stages {
+            stage ('Get code from GIT') {
+                steps {
+                    // Get the repo from GitHub
+                    git 'https://github.com/sabinstoica/mvn_complex.git'
+                       }
+            stage('build') {
+                     // all tests: other variants: only unit, integration, or all (incl. functional testing)
+                     sh 'mvn clean package'
    }
-   stage('build and unit-test') {
-      // all tests: other variants: only unit, integration, or all (incl. functional testing)
-      sh 'mvn clean install -P test-all'
-   }
-   stage('SonarQube analysis') {
+            stage('SonarQube analysis') {
       withSonarQubeEnv('sonar2') {
         sh 'mvn sonar:sonar'
+            }
+         }
       }
    }
 }
