@@ -10,19 +10,19 @@ stages {
                     git 'https://github.com/sabinstoica/mvn_complex.git'
                        }
             }
-            stage('build') {
-                 steps {
-                     // all tests: other variants: only unit, integration, or all (incl. functional testing)
-                     sh 'mvn clean package'
-                        }
-                 }
-            stage('SonarQube analysis') {
-                steps {
-      withSonarQubeEnv('sonar2') {
-        sh 'mvn sonar:sonar'
-                                 }
-                      }
-             }
+//            stage('build') {
+//                 steps {
+//                     // build the package)
+//                     sh 'mvn clean package'
+//                       }
+//                 }
+//            stage('SonarQube analysis') {
+//                steps {
+//      withSonarQubeEnv('sonar2') {
+//        sh 'mvn sonar:sonar'
+//                                 }
+//                      }
+//             }
       }
    }
 
